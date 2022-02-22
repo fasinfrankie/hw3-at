@@ -1,44 +1,14 @@
 <h1> All My Posts </h1>
-
-<%
-place_id = Place.name
-%>
-
+ 
+<h5> Click on a post below to see the full details of that post </h5>
+ 
 <ul>
 <% for post in @posts %>
+ 
 <li>
-
 <a href="/posts/<%= post.id %>">
-<%= post.title %> -
-<%= post.place_id %>
+<%= post.title %>
 </a>
 </li>
+ 
 <% end%>
-</ul>
-
-<h1>Add a New Post</h1>
-
-<%= form_with model: @post do |form| %>
-  <p>
-    <%= form.label "Title" %>
-    <%= form.text_field "title" %>
-    <%= form.label "Date posted" %>
-    <%= form.text_field "date posted" %>
-    <%= form.label "Description" %>
-    <%= form.text_field "description" %>
-    <%= form.label "Place" %>
-    <%= form.collection_select :place_id, Place.order(:name),:id,:name, include_blank: true %>
-
-  </p>
-  <p>
-    <%= form.hidden_field "place_id" %>
-  </p>
-  <%= form.submit "Add Post" %>
-
-    <p>
- If you want to add a post to a *new* place, you'll first need to create the place by navigating back selecting <strong>'Add a new place' </strong> below.
-  </p>
-<% end %>
-
-vancouver = Place.new({ name: "Vancouver, Canada"})
-vancouver.save

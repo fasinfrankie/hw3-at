@@ -1,11 +1,24 @@
-<h1><%= @post.title %></h1>
+<h1><%= @post.title %> </h1>
+
+<ul>
+<% for post in @posts%>
+  <li>
+  <p><%= post.title%></p>
+  <p><%= post.posted_on %></p>
+            <p><%= post.description %></p>
+        </li>
+    <% end %>
+</ul>
 
 
-  <li><%= @post.title %></li>
+
+
   <li><%= @post.posted_on %></li>
 <li><%= @post.description %></li>
 </ul>
 <br>
+<a href="/places/new?Place_id=<%= @place.id %>">Add post</a>
+
 <p><a href="/places/<%= @post.place.id %>">Back to <%= @post.place.name %></a></p>
 
 

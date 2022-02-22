@@ -1,16 +1,19 @@
 <h1>Add a New Post</h1>
 
+<h4> Want to add a post to an existing place? Fill in the form below! </h4>
+
 <%= form_with model: @post do |form| %>
   <p>
-    <%= form.label "Title" %>
-    <%= form.text_field "title" %>
-    <%= form.label "date posted" %>
-    <%= form.text_field "date posted" %>
-    <%= form.label "description" %>
-    <%= form.text_field "description" %>
-  </p>
-  <p>
+    <%= form.label "title" %>
+    <%= form.text_field "title" %></p>
+    <p><%= form.label "posted_on" %>
+    <%= form.text_field "posted_on" %></p>
+   <p> <%= form.label "description" %>
+    <%= form.text_field "description" %></p>
+   <p>
     <%= form.hidden_field "place_id" %>
   </p>
-  <%= form.submit %>
-<% end %>
+
+  <%= form.submit "Add Post" %>
+
+<%end%>
