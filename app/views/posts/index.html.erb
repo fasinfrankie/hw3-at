@@ -1,10 +1,16 @@
-<h1> All my posts </h1>
+<h1> All My Posts </h1>
+
+<%
+place_id = Place.name
+%>
 
 <ul>
 <% for post in @posts %>
 <li>
+
 <a href="/posts/<%= post.id %>">
-<%= post.title %>
+<%= post.title %> -
+<%= post.place_id %>
 </a>
 </li>
 <% end%>
@@ -16,13 +22,23 @@
   <p>
     <%= form.label "Title" %>
     <%= form.text_field "title" %>
-    <%= form.label "date posted" %>
+    <%= form.label "Date posted" %>
     <%= form.text_field "date posted" %>
-    <%= form.label "description" %>
+    <%= form.label "Description" %>
     <%= form.text_field "description" %>
+    <%= form.label "Place" %>
+    <%= form.collection_select :place_id, Place.order(:name),:id,:name, include_blank: true %>
+
   </p>
   <p>
     <%= form.hidden_field "place_id" %>
   </p>
-  <%= form.submit %>
+  <%= form.submit "Add Post" %>
+
+    <p>
+ If you want to add a post to a *new* place, you'll first need to create the place by navigating back selecting <strong>'Add a new place' </strong> below.
+  </p>
 <% end %>
+
+vancouver = Place.new({ name: "Vancouver, Canada"})
+vancouver.save
