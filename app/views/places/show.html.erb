@@ -4,8 +4,7 @@
 <ul>
     <% for my_posts in @place.posts %>
         <li>
-            <%= my_posts.title %>
-            <p><%= my_posts.posted_on %></p>
+         <%= my_posts.title %> --- Posted on: <%= my_posts.posted_on %></p>
             <p><%= my_posts.description %></p>
         </li>
     <% end %>
