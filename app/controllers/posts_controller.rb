@@ -1,11 +1,5 @@
 class PostsController < ApplicationController
-  def index
-    @posts = Post.all
-  end
 
-  def show
-    @post = Post.new(params["id"])
-  end
 
       def new
         @post = Post.new
@@ -18,6 +12,7 @@ class PostsController < ApplicationController
         @post.save
         redirect_to "/places"
       end
+
 
 end
 

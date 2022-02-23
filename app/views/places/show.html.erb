@@ -1,3 +1,7 @@
+<button>
+<a href="/places">Click here to go back to all places</a>
+</button>
+
 <h1><%= @place.name %></h1>
 
 <h3>Posts</h3>
@@ -10,7 +14,13 @@
     <% end %>
 </ul>
 
-<a href="/posts/new?place_id=<%= @place.id %>">Add Post</a>
+<button>
+<a href="/posts/new?place_id=<%= @place.id %>">Add New Post</a>
+</button>
 
-<a href="/places">Back to all places</a>
+<br><br>
+
+<button>
+<a href="/places">Go Back to All Places</a>
+</button>
 
